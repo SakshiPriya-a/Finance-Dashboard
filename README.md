@@ -97,7 +97,7 @@ Distributed under the MIT License.
 # 💜 Author
 
 Sakshi Priya
-Aesthetic UI Developer • CSE Engineer • Loves building visually pleasing dashboards
+
 
 # ⭐ Support
 
