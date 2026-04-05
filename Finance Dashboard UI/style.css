@@ -1,0 +1,129 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background: #0e0b1a;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+.bg-stars {
+  position: fixed;
+  top: 0; left:0;
+  width:100%; height:100%;
+  background: radial-gradient(ellipse at bottom, #4b0082 0%, #0e0b1a 100%);
+  z-index: -2;
+}
+
+.bg-stars::after {
+  content: '';
+  position: absolute;
+  width: 2px; height: 2px;
+  background: white;
+  box-shadow:
+    50px 100px white, 200px 50px white, 400px 300px white,
+    600px 200px white, 800px 400px white, 1000px 150px white;
+  animation: twinkle 5s infinite linear;
+}
+
+@keyframes twinkle {
+  0%,100%{opacity:1;}
+  50%{opacity:0.3;}
+}
+
+
+/* Header center alignment */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+/* Center title block */
+.header-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+/* Animated icon */
+.animate-icon {
+  font-size: 2.5rem;
+  animation: floatIcon 3s ease-in-out infinite;
+}
+
+@keyframes floatIcon {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Right side controls */
+.top-controls {
+  display: flex;
+  gap: 1rem;
+}
+
+
+
+/* Dark Mode Working */
+body.dark {
+  background: #0a0a0a;
+  color: white;
+}
+
+body.dark .card,
+body.dark .glass,
+body.dark table td,
+body.dark table th {
+  background: rgba(255,255,255,0.08);
+}
+
+
+
+
+
+
+/* Glowing animated title */
+.glow {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  color: #d7baff;
+  text-shadow: 0 0 10px #d7baff, 0 0 20px #b491ff;
+  animation: glowAnim 2s ease-in-out infinite alternate;
+}
+
+
+
+@keyframes glowAnim {
+  from { text-shadow: 0 0 5px #d7baff, 0 0 10px #b491ff; }
+  to   { text-shadow: 0 0 20px #d7baff, 0 0 40px #b491ff; }
+}
+
+/* Cards */
+.summary { display:flex; justify-content: space-around; flex-wrap: wrap; gap:1rem; margin:2rem 1rem;}
+.card { background: rgba(255,255,255,0.05); padding:1.5rem; border-radius:15px; width:200px; text-align:center; box-shadow: 0 0 20px rgba(215,186,255,0.5); transition: transform 0.3s ease;}
+.card:hover{transform: translateY(-5px);}
+.glass {backdrop-filter: blur(10px);}
+
+/* Charts smaller size */
+.charts {display:flex; justify-content: space-around; flex-wrap:wrap; gap:2rem; margin:2rem 1rem;}
+.chart-card { width: 400px; padding: 1rem;}
+
+/* Transaction section */
+.transaction-section { margin:2rem 1rem; padding:1rem; }
+.transaction-section table { width:100%; border-collapse: collapse; }
+.transaction-section th, .transaction-section td { padding:0.5rem; text-align:left; }
+.transaction-section th { background: rgba(215,186,255,0.3);}
+.transaction-section td { background: rgba(255,255,255,0.05); margin:5px 0;}
+.add-btn { background: #b491ff; border:none; padding:0.5rem 1rem; border-radius:10px; cursor:pointer; color:#fff;}
+.add-btn:hover { transform: scale(1.05); }
+
+/* Modal */
+.modal { position: fixed; top:0; left:0; width:100%; height:100%; display:none; justify-content:center; align-items:center; background: rgba(0,0,0,0.5); z-index: 999; }
+.modal-content { background: rgba(255,255,255,0.05); padding:2rem; border-radius:15px; width:300px; display:flex; flex-direction:column; gap:1rem; }
+input, select, button { padding:0.5rem; border-radius:10px; border:none; outline:none; }
+button { cursor:pointer; transition:0.3s; }
+button:hover { transform: scale(1.05); }

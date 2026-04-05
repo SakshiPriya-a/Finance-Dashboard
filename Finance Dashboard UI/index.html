@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Finance Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="light">
+
+  <!-- Starry Space Background -->
+  <div class="bg-stars"></div>
+
+  <!-- Header Title -->
+ <header class="dashboard-header">
+
+    <div class="header-center">
+        <div class="title-icon animate-icon">💸</div>
+        <h1 class="main-title glow">💸 Finance Dashboard</h1>
+    </div>
+
+    <div class="top-controls">
+        <select id="roleSelect">
+            <option value="admin">Admin</option>
+            <option value="viewer">Viewer</option>
+        </select>
+
+        <button id="themeToggle">🌙</button>
+    </div>
+
+</header>
+
+  <!-- Summary Cards -->
+  <section class="summary">
+    <div class="card glass" id="balanceCard">
+      <h3>Total Balance</h3>
+      <p id="totalBalance">₹0</p>
+    </div>
+
+    <div class="card glass" id="incomeCard">
+      <h3>Total Income</h3>
+      <p id="totalIncome">₹0</p>
+    </div>
+
+    <div class="card glass" id="expenseCard">
+      <h3>Total Expense</h3>
+      <p id="totalExpense">₹0</p>
+    </div>
+  </section>
+
+  <!-- Charts Area -->
+  <section class="charts">
+    <div class="chart-card glass">
+      <canvas id="lineChart"></canvas>
+    </div>
+    <div class="chart-card glass">
+      <canvas id="pieChart"></canvas>
+    </div>
+  </section>
+
+  <!-- Transaction Section -->
+  <section class="transaction-section glass">
+    <div class="transaction-header">
+      <h2>Transactions</h2>
+      <button id="addBtn" class="add-btn">+ Add Transaction</button>
+    </div>
+
+    <div class="filters">
+      <input type="text" id="searchInput" placeholder="Search..." />
+      <select id="typeFilter">
+        <option value="all">All</option>
+        <option value="income">Income</option>
+        <option value="expense">Expense</option>
+      </select>
+    </div>
+
+    <table id="transactionTable">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Category</th>
+          <th>Amount</th>
+          <th>Type</th>
+          <th class="admin-only">Actions</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody">
+        <tr class="empty-row"><td colspan="5">No transactions yet.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Insights Section -->
+  <section class="insights glass">
+    <h2>Insights</h2>
+    <p id="highestCategory">Highest Spending Category: —</p>
+    <p id="monthlyChange">Monthly Comparison: —</p>
+    <p id="totalTransactions">Total Transactions: 0</p>
+  </section>
+
+  <!-- Add Transaction Modal -->
+  <div id="addModal" class="modal">
+    <div class="modal-content glass">
+      <h2>Add Transaction</h2>
+      <input type="date" id="addDate">
+      <input type="text" id="addCategory" placeholder="Category">
+      <input type="number" id="addAmount" placeholder="Amount">
+      <select id="addType">
+        <option value="income">Income</option>
+        <option value="expense">Expense</option>
+      </select>
+      <button id="saveTransaction">Save</button>
+      <button class="close-modal">Close</button>
+    </div>
+  </div>
+
+  <!-- Edit Transaction Modal -->
+  <div id="editModal" class="modal">
+    <div class="modal-content glass">
+      <h2>Edit Transaction</h2>
+      <input type="date" id="editDate">
+      <input type="text" id="editCategory" placeholder="Category">
+      <input type="number" id="editAmount" placeholder="Amount">
+      <select id="editType">
+        <option value="income">Income</option>
+        <option value="expense">Expense</option>
+      </select>
+      <button id="updateTransaction">Update</button>
+      <button class="close-modal">Close</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
